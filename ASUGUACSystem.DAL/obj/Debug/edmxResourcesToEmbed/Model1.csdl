@@ -1,0 +1,1175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASUGUACModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actividad">
+    <Key>
+      <PropertyRef Name="IDActividad" />
+    </Key>
+    <Property Name="IDActividad" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="IDTipoActividad" Type="Int64" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TipoActividad" Relationship="Self.FK__Actividad__IDTip__5629CD9C" FromRole="Actividad" ToRole="TipoActividad" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Actividad__IDUsu__571DF1D5" FromRole="Actividad" ToRole="Usuario" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.FK__Publicaci__IDAct__60A75C0F" FromRole="Actividad" ToRole="Publicacion" />
+  </EntityType>
+  <EntityType Name="BolsaLaboral">
+    <Key>
+      <PropertyRef Name="IDBolsaLaboral" />
+    </Key>
+    <Property Name="IDBolsaLaboral" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BolsaLaboralCarrera" Relationship="Self.FK__BolsaLabo__IDBol__59063A47" FromRole="BolsaLaboral" ToRole="BolsaLaboralCarrera" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__BolsaLabo__IDUsu__5812160E" FromRole="BolsaLaboral" ToRole="Usuario" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.FK__Publicaci__IDBol__619B8048" FromRole="BolsaLaboral" ToRole="Publicacion" />
+  </EntityType>
+  <EntityType Name="BolsaLaboralCarrera">
+    <Key>
+      <PropertyRef Name="IDBolsaLaboralCarrera" />
+    </Key>
+    <Property Name="IDBolsaLaboralCarrera" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDBolsaLaboral" Type="Int64" Nullable="false" />
+    <Property Name="IDCarreraProfesional" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BolsaLaboral" Relationship="Self.FK__BolsaLabo__IDBol__59063A47" FromRole="BolsaLaboralCarrera" ToRole="BolsaLaboral" />
+    <NavigationProperty Name="EscuelaProfesional" Relationship="Self.FK__BolsaLabo__IDCar__59FA5E80" FromRole="BolsaLaboralCarrera" ToRole="EscuelaProfesional" />
+  </EntityType>
+  <EntityType Name="Busqueda">
+    <Key>
+      <PropertyRef Name="IDBusqueda" />
+    </Key>
+    <Property Name="IDBusqueda" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contenido" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="FechaActual" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Busqueda__IDUsua__5AEE82B9" FromRole="Busqueda" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IDEmpresa" />
+    </Key>
+    <Property Name="IDEmpresa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreEmpresa" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EPMiembro">
+    <Key>
+      <PropertyRef Name="IDCPMiembro" />
+    </Key>
+    <Property Name="IDCPMiembro" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCarreraProfesional" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Miembro" Relationship="Self.FK__EPMiembro__DNI__5BE2A6F2" FromRole="EPMiembro" ToRole="Miembro" />
+    <NavigationProperty Name="EscuelaProfesional" Relationship="Self.FK__EPMiembro__IDCar__5CD6CB2B" FromRole="EPMiembro" ToRole="EscuelaProfesional" />
+  </EntityType>
+  <EntityType Name="EscuelaProfesional">
+    <Key>
+      <PropertyRef Name="IDCarreraProfesional" />
+    </Key>
+    <Property Name="IDCarreraProfesional" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BolsaLaboralCarrera" Relationship="Self.FK__BolsaLabo__IDCar__59FA5E80" FromRole="EscuelaProfesional" ToRole="BolsaLaboralCarrera" />
+    <NavigationProperty Name="EPMiembro" Relationship="Self.FK__EPMiembro__IDCar__5CD6CB2B" FromRole="EscuelaProfesional" ToRole="EPMiembro" />
+  </EntityType>
+  <EntityType Name="Membresia">
+    <Key>
+      <PropertyRef Name="IDMembresia" />
+    </Key>
+    <Property Name="IDMembresia" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDAsociado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Tipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CategoriaMembresia" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__IDMembr__6477ECF3" FromRole="Membresia" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Miembro">
+    <Key>
+      <PropertyRef Name="DNI" />
+    </Key>
+    <Property Name="DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Telefonopcional" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="170" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EPMiembro" Relationship="Self.FK__EPMiembro__DNI__5BE2A6F2" FromRole="Miembro" ToRole="EPMiembro" />
+  </EntityType>
+  <EntityType Name="Notificacion">
+    <Key>
+      <PropertyRef Name="IDNotificacion" />
+    </Key>
+    <Property Name="IDNotificacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNotificacion" Type="DateTime" Precision="3" />
+    <Property Name="TextoNotificacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IDPublicacion" Type="Int64" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.FK__Notificac__IDPub__5DCAEF64" FromRole="Notificacion" ToRole="Publicacion" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Notificac__IDUsu__5EBF139D" FromRole="Notificacion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Promocion">
+    <Key>
+      <PropertyRef Name="IDPromocion" />
+    </Key>
+    <Property Name="IDPromocion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPromo" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Promocion__IDUsu__5FB337D6" FromRole="Promocion" ToRole="Usuario" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.FK__Publicaci__IDPro__628FA481" FromRole="Promocion" ToRole="Publicacion" />
+  </EntityType>
+  <EntityType Name="Publicacion">
+    <Key>
+      <PropertyRef Name="IDPublicacion" />
+    </Key>
+    <Property Name="IDPublicacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPromocion" Type="Int64" />
+    <Property Name="IDBolsaLaboral" Type="Int64" />
+    <Property Name="IDActividad" Type="Int64" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Actividad" Relationship="Self.FK__Publicaci__IDAct__60A75C0F" FromRole="Publicacion" ToRole="Actividad" />
+    <NavigationProperty Name="BolsaLaboral" Relationship="Self.FK__Publicaci__IDBol__619B8048" FromRole="Publicacion" ToRole="BolsaLaboral" />
+    <NavigationProperty Name="Notificacion" Relationship="Self.FK__Notificac__IDPub__5DCAEF64" FromRole="Publicacion" ToRole="Notificacion" />
+    <NavigationProperty Name="Promocion" Relationship="Self.FK__Publicaci__IDPro__628FA481" FromRole="Publicacion" ToRole="Promocion" />
+  </EntityType>
+  <EntityType Name="Sesion">
+    <Key>
+      <PropertyRef Name="IDSesion" />
+    </Key>
+    <Property Name="IDSesion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Duracion" Type="Time" Precision="7" />
+    <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Sesion__IDUsuari__6383C8BA" FromRole="Sesion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Solicitud">
+    <Key>
+      <PropertyRef Name="IDSolicitud" />
+    </Key>
+    <Property Name="IDSolicitud" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TipoRequerimiento" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="IDTag" />
+    </Key>
+    <Property Name="IDTag" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Palabra" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoActividad">
+    <Key>
+      <PropertyRef Name="IDTipoActividad" />
+    </Key>
+    <Property Name="IDTipoActividad" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Actividad" Relationship="Self.FK__Actividad__IDTip__5629CD9C" FromRole="TipoActividad" ToRole="Actividad" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IDAsociado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IDMembresia" Type="Int64" />
+    <Property Name="Permiso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Actividad" Relationship="Self.FK__Actividad__IDUsu__571DF1D5" FromRole="Usuario" ToRole="Actividad" />
+    <NavigationProperty Name="BolsaLaboral" Relationship="Self.FK__BolsaLabo__IDUsu__5812160E" FromRole="Usuario" ToRole="BolsaLaboral" />
+    <NavigationProperty Name="Busqueda" Relationship="Self.FK__Busqueda__IDUsua__5AEE82B9" FromRole="Usuario" ToRole="Busqueda" />
+    <NavigationProperty Name="Membresia" Relationship="Self.FK__Usuario__IDMembr__6477ECF3" FromRole="Usuario" ToRole="Membresia" />
+    <NavigationProperty Name="Notificacion" Relationship="Self.FK__Notificac__IDUsu__5EBF139D" FromRole="Usuario" ToRole="Notificacion" />
+    <NavigationProperty Name="Promocion" Relationship="Self.FK__Promocion__IDUsu__5FB337D6" FromRole="Usuario" ToRole="Promocion" />
+    <NavigationProperty Name="Sesion" Relationship="Self.FK__Sesion__IDUsuari__6383C8BA" FromRole="Usuario" ToRole="Sesion" />
+  </EntityType>
+  <Association Name="FK__Actividad__IDTip__5629CD9C">
+    <End Role="TipoActividad" Type="Self.TipoActividad" Multiplicity="0..1" />
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoActividad">
+        <PropertyRef Name="IDTipoActividad" />
+      </Principal>
+      <Dependent Role="Actividad">
+        <PropertyRef Name="IDTipoActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Actividad__IDUsu__571DF1D5">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Actividad">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Publicaci__IDAct__60A75C0F">
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividad">
+        <PropertyRef Name="IDActividad" />
+      </Principal>
+      <Dependent Role="Publicacion">
+        <PropertyRef Name="IDActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BolsaLabo__IDBol__59063A47">
+    <End Role="BolsaLaboral" Type="Self.BolsaLaboral" Multiplicity="1" />
+    <End Role="BolsaLaboralCarrera" Type="Self.BolsaLaboralCarrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BolsaLaboral">
+        <PropertyRef Name="IDBolsaLaboral" />
+      </Principal>
+      <Dependent Role="BolsaLaboralCarrera">
+        <PropertyRef Name="IDBolsaLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BolsaLabo__IDUsu__5812160E">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="BolsaLaboral" Type="Self.BolsaLaboral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="BolsaLaboral">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Publicaci__IDBol__619B8048">
+    <End Role="BolsaLaboral" Type="Self.BolsaLaboral" Multiplicity="0..1" />
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BolsaLaboral">
+        <PropertyRef Name="IDBolsaLaboral" />
+      </Principal>
+      <Dependent Role="Publicacion">
+        <PropertyRef Name="IDBolsaLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BolsaLabo__IDCar__59FA5E80">
+    <End Role="EscuelaProfesional" Type="Self.EscuelaProfesional" Multiplicity="1" />
+    <End Role="BolsaLaboralCarrera" Type="Self.BolsaLaboralCarrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscuelaProfesional">
+        <PropertyRef Name="IDCarreraProfesional" />
+      </Principal>
+      <Dependent Role="BolsaLaboralCarrera">
+        <PropertyRef Name="IDCarreraProfesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Busqueda__IDUsua__5AEE82B9">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Busqueda" Type="Self.Busqueda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Busqueda">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EPMiembro__DNI__5BE2A6F2">
+    <End Role="Miembro" Type="Self.Miembro" Multiplicity="1" />
+    <End Role="EPMiembro" Type="Self.EPMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miembro">
+        <PropertyRef Name="DNI" />
+      </Principal>
+      <Dependent Role="EPMiembro">
+        <PropertyRef Name="DNI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EPMiembro__IDCar__5CD6CB2B">
+    <End Role="EscuelaProfesional" Type="Self.EscuelaProfesional" Multiplicity="1" />
+    <End Role="EPMiembro" Type="Self.EPMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscuelaProfesional">
+        <PropertyRef Name="IDCarreraProfesional" />
+      </Principal>
+      <Dependent Role="EPMiembro">
+        <PropertyRef Name="IDCarreraProfesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IDMembr__6477ECF3">
+    <End Role="Membresia" Type="Self.Membresia" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membresia">
+        <PropertyRef Name="IDMembresia" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IDMembresia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificac__IDPub__5DCAEF64">
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="0..1" />
+    <End Role="Notificacion" Type="Self.Notificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publicacion">
+        <PropertyRef Name="IDPublicacion" />
+      </Principal>
+      <Dependent Role="Notificacion">
+        <PropertyRef Name="IDPublicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificac__IDUsu__5EBF139D">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Notificacion" Type="Self.Notificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Notificacion">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Promocion__IDUsu__5FB337D6">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Promocion">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Publicaci__IDPro__628FA481">
+    <End Role="Promocion" Type="Self.Promocion" Multiplicity="0..1" />
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promocion">
+        <PropertyRef Name="IDPromocion" />
+      </Principal>
+      <Dependent Role="Publicacion">
+        <PropertyRef Name="IDPromocion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sesion__IDUsuari__6383C8BA">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Sesion" Type="Self.Sesion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Sesion">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASUGUACEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+    <EntitySet Name="BolsaLaboral" EntityType="Self.BolsaLaboral" />
+    <EntitySet Name="BolsaLaboralCarrera" EntityType="Self.BolsaLaboralCarrera" />
+    <EntitySet Name="Busqueda" EntityType="Self.Busqueda" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+    <EntitySet Name="EPMiembro" EntityType="Self.EPMiembro" />
+    <EntitySet Name="EscuelaProfesional" EntityType="Self.EscuelaProfesional" />
+    <EntitySet Name="Membresia" EntityType="Self.Membresia" />
+    <EntitySet Name="Miembro" EntityType="Self.Miembro" />
+    <EntitySet Name="Notificacion" EntityType="Self.Notificacion" />
+    <EntitySet Name="Promocion" EntityType="Self.Promocion" />
+    <EntitySet Name="Publicacion" EntityType="Self.Publicacion" />
+    <EntitySet Name="Sesion" EntityType="Self.Sesion" />
+    <EntitySet Name="Solicitud" EntityType="Self.Solicitud" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" />
+    <EntitySet Name="TipoActividad" EntityType="Self.TipoActividad" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__Actividad__IDTip__5629CD9C" Association="Self.FK__Actividad__IDTip__5629CD9C">
+      <End Role="TipoActividad" EntitySet="TipoActividad" />
+      <End Role="Actividad" EntitySet="Actividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Actividad__IDUsu__571DF1D5" Association="Self.FK__Actividad__IDUsu__571DF1D5">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Actividad" EntitySet="Actividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Publicaci__IDAct__60A75C0F" Association="Self.FK__Publicaci__IDAct__60A75C0F">
+      <End Role="Actividad" EntitySet="Actividad" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BolsaLabo__IDBol__59063A47" Association="Self.FK__BolsaLabo__IDBol__59063A47">
+      <End Role="BolsaLaboral" EntitySet="BolsaLaboral" />
+      <End Role="BolsaLaboralCarrera" EntitySet="BolsaLaboralCarrera" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BolsaLabo__IDUsu__5812160E" Association="Self.FK__BolsaLabo__IDUsu__5812160E">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="BolsaLaboral" EntitySet="BolsaLaboral" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Publicaci__IDBol__619B8048" Association="Self.FK__Publicaci__IDBol__619B8048">
+      <End Role="BolsaLaboral" EntitySet="BolsaLaboral" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BolsaLabo__IDCar__59FA5E80" Association="Self.FK__BolsaLabo__IDCar__59FA5E80">
+      <End Role="EscuelaProfesional" EntitySet="EscuelaProfesional" />
+      <End Role="BolsaLaboralCarrera" EntitySet="BolsaLaboralCarrera" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Busqueda__IDUsua__5AEE82B9" Association="Self.FK__Busqueda__IDUsua__5AEE82B9">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Busqueda" EntitySet="Busqueda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EPMiembro__DNI__5BE2A6F2" Association="Self.FK__EPMiembro__DNI__5BE2A6F2">
+      <End Role="Miembro" EntitySet="Miembro" />
+      <End Role="EPMiembro" EntitySet="EPMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EPMiembro__IDCar__5CD6CB2B" Association="Self.FK__EPMiembro__IDCar__5CD6CB2B">
+      <End Role="EscuelaProfesional" EntitySet="EscuelaProfesional" />
+      <End Role="EPMiembro" EntitySet="EPMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IDMembr__6477ECF3" Association="Self.FK__Usuario__IDMembr__6477ECF3">
+      <End Role="Membresia" EntitySet="Membresia" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificac__IDPub__5DCAEF64" Association="Self.FK__Notificac__IDPub__5DCAEF64">
+      <End Role="Publicacion" EntitySet="Publicacion" />
+      <End Role="Notificacion" EntitySet="Notificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificac__IDUsu__5EBF139D" Association="Self.FK__Notificac__IDUsu__5EBF139D">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Notificacion" EntitySet="Notificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Promocion__IDUsu__5FB337D6" Association="Self.FK__Promocion__IDUsu__5FB337D6">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Promocion" EntitySet="Promocion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Publicaci__IDPro__628FA481" Association="Self.FK__Publicaci__IDPro__628FA481">
+      <End Role="Promocion" EntitySet="Promocion" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sesion__IDUsuari__6383C8BA" Association="Self.FK__Sesion__IDUsuari__6383C8BA">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Sesion" EntitySet="Sesion" />
+    </AssociationSet>
+    <FunctionImport Name="Actividad_Create">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDTipoActividad" Mode="In" Type="Int64" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="IDActividad" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Actividad_Delete">
+      <Parameter Name="IDActividad" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Actividad_ReadAll" ReturnType="Collection(ASUGUACModel.Actividad_ReadAll_Result)" />
+    <FunctionImport Name="Actividad_ReadById" ReturnType="Collection(ASUGUACModel.Actividad_ReadById_Result)">
+      <Parameter Name="IDActividad" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Actividad_Update">
+      <Parameter Name="IDActividad" Mode="In" Type="Int64" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDTipoActividad" Mode="In" Type="Int64" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboral_Create">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDBolsaLaboral" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboral_Delete">
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboral_ReadAll" ReturnType="Collection(ASUGUACModel.BolsaLaboral_ReadAll_Result)" />
+    <FunctionImport Name="BolsaLaboral_ReadById" ReturnType="Collection(ASUGUACModel.BolsaLaboral_ReadById_Result)">
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboral_Update">
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboralCarrera_Create">
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+      <Parameter Name="IDBolsaLaboralCarrera" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboralCarrera_Delete">
+      <Parameter Name="IDBolsaLaboralCarrera" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboralCarrera_ReadAll" ReturnType="Collection(ASUGUACModel.BolsaLaboralCarrera_ReadAll_Result)" />
+    <FunctionImport Name="BolsaLaboralCarrera_ReadById" ReturnType="Collection(ASUGUACModel.BolsaLaboralCarrera_ReadById_Result)">
+      <Parameter Name="IDBolsaLaboralCarrera" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="BolsaLaboralCarrera_Update">
+      <Parameter Name="IDBolsaLaboralCarrera" Mode="In" Type="Int64" />
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Busqueda_Create">
+      <Parameter Name="Contenido" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaActual" Mode="In" Type="DateTime" />
+      <Parameter Name="IDBusqueda" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Busqueda_Delete">
+      <Parameter Name="IDBusqueda" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Busqueda_ReadAll" ReturnType="Collection(ASUGUACModel.Busqueda_ReadAll_Result)" />
+    <FunctionImport Name="Busqueda_ReadById" ReturnType="Collection(ASUGUACModel.Busqueda_ReadById_Result)">
+      <Parameter Name="IDBusqueda" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Busqueda_Update">
+      <Parameter Name="IDBusqueda" Mode="In" Type="Int64" />
+      <Parameter Name="Contenido" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaActual" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Empresa_Create">
+      <Parameter Name="IDEmpresa" Mode="In" Type="String" />
+      <Parameter Name="NombreEmpresa" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Empresa_Delete">
+      <Parameter Name="IDEmpresa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Empresa_ReadAll" ReturnType="Collection(ASUGUACModel.Empresa_ReadAll_Result)" />
+    <FunctionImport Name="Empresa_ReadById" ReturnType="Collection(ASUGUACModel.Empresa_ReadById_Result)">
+      <Parameter Name="IDEmpresa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Empresa_Update">
+      <Parameter Name="IDEmpresa" Mode="In" Type="String" />
+      <Parameter Name="NombreEmpresa" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EPMiembro_Create">
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+      <Parameter Name="DNI" Mode="In" Type="String" />
+      <Parameter Name="IDCPMiembro" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EPMiembro_Delete">
+      <Parameter Name="IDCPMiembro" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EPMiembro_ReadAll" ReturnType="Collection(ASUGUACModel.EPMiembro_ReadAll_Result)" />
+    <FunctionImport Name="EPMiembro_ReadById" ReturnType="Collection(ASUGUACModel.EPMiembro_ReadById_Result)">
+      <Parameter Name="IDCPMiembro" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EPMiembro_Update">
+      <Parameter Name="IDCPMiembro" Mode="In" Type="Int64" />
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+      <Parameter Name="DNI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EscuelaProfesional_Create">
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EscuelaProfesional_Delete">
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EscuelaProfesional_ReadAll" ReturnType="Collection(ASUGUACModel.EscuelaProfesional_ReadAll_Result)" />
+    <FunctionImport Name="EscuelaProfesional_ReadById" ReturnType="Collection(ASUGUACModel.EscuelaProfesional_ReadById_Result)">
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EscuelaProfesional_Update">
+      <Parameter Name="IDCarreraProfesional" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Membresia_Create">
+      <Parameter Name="IDAsociado" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="CategoriaMembresia" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDMembresia" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Membresia_Delete">
+      <Parameter Name="IDMembresia" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Membresia_ReadAll" ReturnType="Collection(ASUGUACModel.Membresia_ReadAll_Result)" />
+    <FunctionImport Name="Membresia_ReadById" ReturnType="Collection(ASUGUACModel.Membresia_ReadById_Result)">
+      <Parameter Name="IDMembresia" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Membresia_Update">
+      <Parameter Name="IDMembresia" Mode="In" Type="Int64" />
+      <Parameter Name="IDAsociado" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="CategoriaMembresia" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Miembro_Create">
+      <Parameter Name="DNI" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Celular" Mode="In" Type="String" />
+      <Parameter Name="Telefonopcional" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoElectronico" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Miembro_Delete">
+      <Parameter Name="DNI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Miembro_ReadAll" ReturnType="Collection(ASUGUACModel.Miembro_ReadAll_Result)" />
+    <FunctionImport Name="Miembro_ReadById" ReturnType="Collection(ASUGUACModel.Miembro_ReadById_Result)">
+      <Parameter Name="DNI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Miembro_Update">
+      <Parameter Name="DNI" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Celular" Mode="In" Type="String" />
+      <Parameter Name="Telefonopcional" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="CorreoElectronico" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Notificacion_Create">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaNotificacion" Mode="In" Type="DateTime" />
+      <Parameter Name="TextoNotificacion" Mode="In" Type="String" />
+      <Parameter Name="IDPublicacion" Mode="In" Type="Int64" />
+      <Parameter Name="IDNotificacion" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Notificacion_Delete">
+      <Parameter Name="IDNotificacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Notificacion_ReadAll" ReturnType="Collection(ASUGUACModel.Notificacion_ReadAll_Result)" />
+    <FunctionImport Name="Notificacion_ReadById" ReturnType="Collection(ASUGUACModel.Notificacion_ReadById_Result)">
+      <Parameter Name="IDNotificacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Notificacion_Update">
+      <Parameter Name="IDNotificacion" Mode="In" Type="Int64" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaNotificacion" Mode="In" Type="DateTime" />
+      <Parameter Name="TextoNotificacion" Mode="In" Type="String" />
+      <Parameter Name="IDPublicacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Promocion_Create">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="CodigoPromo" Mode="In" Type="String" />
+      <Parameter Name="IDPromocion" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Promocion_Delete">
+      <Parameter Name="IDPromocion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Promocion_ReadAll" ReturnType="Collection(ASUGUACModel.Promocion_ReadAll_Result)" />
+    <FunctionImport Name="Promocion_ReadById" ReturnType="Collection(ASUGUACModel.Promocion_ReadById_Result)">
+      <Parameter Name="IDPromocion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Promocion_Update">
+      <Parameter Name="IDPromocion" Mode="In" Type="Int64" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="CodigoPromo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Publicacion_Create">
+      <Parameter Name="IDPromocion" Mode="In" Type="Int64" />
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+      <Parameter Name="IDActividad" Mode="In" Type="Int64" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDPublicacion" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Publicacion_Delete">
+      <Parameter Name="IDPublicacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Publicacion_ReadAll" ReturnType="Collection(ASUGUACModel.Publicacion_ReadAll_Result)" />
+    <FunctionImport Name="Publicacion_ReadById" ReturnType="Collection(ASUGUACModel.Publicacion_ReadById_Result)">
+      <Parameter Name="IDPublicacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Publicacion_Update">
+      <Parameter Name="IDPublicacion" Mode="In" Type="Int64" />
+      <Parameter Name="IDPromocion" Mode="In" Type="Int64" />
+      <Parameter Name="IDBolsaLaboral" Mode="In" Type="Int64" />
+      <Parameter Name="IDActividad" Mode="In" Type="Int64" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sesion_Create">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="Duracion" Mode="In" Type="Time" />
+      <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="IDSesion" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Sesion_Delete">
+      <Parameter Name="IDSesion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Sesion_ReadAll" ReturnType="Collection(ASUGUACModel.Sesion_ReadAll_Result)" />
+    <FunctionImport Name="Sesion_ReadById" ReturnType="Collection(ASUGUACModel.Sesion_ReadById_Result)">
+      <Parameter Name="IDSesion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Sesion_Update">
+      <Parameter Name="IDSesion" Mode="In" Type="Int64" />
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="Duracion" Mode="In" Type="Time" />
+      <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Solicitud_Create">
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="TipoRequerimiento" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDSolicitud" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Solicitud_Delete">
+      <Parameter Name="IDSolicitud" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Solicitud_ReadAll" ReturnType="Collection(ASUGUACModel.Solicitud_ReadAll_Result)" />
+    <FunctionImport Name="Solicitud_ReadById" ReturnType="Collection(ASUGUACModel.Solicitud_ReadById_Result)">
+      <Parameter Name="IDSolicitud" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Solicitud_Update">
+      <Parameter Name="IDSolicitud" Mode="In" Type="Int64" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="TipoRequerimiento" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ASUGUACModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ASUGUACModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sysdiagrams_Delete">
+      <Parameter Name="diagram_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sysdiagrams_ReadAll" ReturnType="Collection(ASUGUACModel.sysdiagrams_ReadAll_Result)" />
+    <FunctionImport Name="sysdiagrams_ReadById" ReturnType="Collection(ASUGUACModel.sysdiagrams_ReadById_Result)">
+      <Parameter Name="diagram_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Tag_Create">
+      <Parameter Name="Palabra" Mode="In" Type="String" />
+      <Parameter Name="IDTag" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Tag_Delete">
+      <Parameter Name="IDTag" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Tag_ReadAll" ReturnType="Collection(ASUGUACModel.Tag_ReadAll_Result)" />
+    <FunctionImport Name="Tag_ReadById" ReturnType="Collection(ASUGUACModel.Tag_ReadById_Result)">
+      <Parameter Name="IDTag" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Tag_Update">
+      <Parameter Name="IDTag" Mode="In" Type="Int64" />
+      <Parameter Name="Palabra" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoActividad_Create">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IDTipoActividad" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="TipoActividad_Delete">
+      <Parameter Name="IDTipoActividad" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="TipoActividad_ReadAll" ReturnType="Collection(ASUGUACModel.TipoActividad_ReadAll_Result)" />
+    <FunctionImport Name="TipoActividad_ReadById" ReturnType="Collection(ASUGUACModel.TipoActividad_ReadById_Result)">
+      <Parameter Name="IDTipoActividad" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="TipoActividad_Update">
+      <Parameter Name="IDTipoActividad" Mode="In" Type="Int64" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usuario_Create">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contraseña" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDAsociado" Mode="In" Type="String" />
+      <Parameter Name="IDMembresia" Mode="In" Type="Int64" />
+      <Parameter Name="Permiso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usuario_Delete">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usuario_ReadAll" ReturnType="Collection(ASUGUACModel.Usuario_ReadAll_Result)" />
+    <FunctionImport Name="Usuario_ReadById" ReturnType="Collection(ASUGUACModel.Usuario_ReadById_Result)">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usuario_Update">
+      <Parameter Name="IDUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contraseña" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="IDAsociado" Mode="In" Type="String" />
+      <Parameter Name="IDMembresia" Mode="In" Type="Int64" />
+      <Parameter Name="Permiso" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Actividad_ReadAll_Result">
+    <Property Type="Int64" Name="IDActividad" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="Int64" Name="IDTipoActividad" Nullable="true" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="Actividad_ReadById_Result">
+    <Property Type="Int64" Name="IDActividad" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="Int64" Name="IDTipoActividad" Nullable="true" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="BolsaLaboral_ReadAll_Result">
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="BolsaLaboral_ReadById_Result">
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="BolsaLaboralCarrera_ReadAll_Result">
+    <Property Type="Int64" Name="IDBolsaLaboralCarrera" Nullable="false" />
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="false" />
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="BolsaLaboralCarrera_ReadById_Result">
+    <Property Type="Int64" Name="IDBolsaLaboralCarrera" Nullable="false" />
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="false" />
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="Busqueda_ReadAll_Result">
+    <Property Type="Int64" Name="IDBusqueda" Nullable="false" />
+    <Property Type="String" Name="Contenido" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaActual" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Busqueda_ReadById_Result">
+    <Property Type="Int64" Name="IDBusqueda" Nullable="false" />
+    <Property Type="String" Name="Contenido" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaActual" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Empresa_ReadAll_Result">
+    <Property Type="String" Name="IDEmpresa" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NombreEmpresa" Nullable="true" MaxLength="70" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="Empresa_ReadById_Result">
+    <Property Type="String" Name="IDEmpresa" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NombreEmpresa" Nullable="true" MaxLength="70" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="EPMiembro_ReadAll_Result">
+    <Property Type="Int64" Name="IDCPMiembro" Nullable="false" />
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="EPMiembro_ReadById_Result">
+    <Property Type="Int64" Name="IDCPMiembro" Nullable="false" />
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="EscuelaProfesional_ReadAll_Result">
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="EscuelaProfesional_ReadById_Result">
+    <Property Type="String" Name="IDCarreraProfesional" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="Membresia_ReadAll_Result">
+    <Property Type="Int64" Name="IDMembresia" Nullable="false" />
+    <Property Type="String" Name="IDAsociado" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="CategoriaMembresia" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Membresia_ReadById_Result">
+    <Property Type="Int64" Name="IDMembresia" Nullable="false" />
+    <Property Type="String" Name="IDAsociado" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="CategoriaMembresia" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Miembro_ReadAll_Result">
+    <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Celular" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Telefonopcional" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="170" />
+    <Property Type="String" Name="CorreoElectronico" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Miembro_ReadById_Result">
+    <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Celular" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Telefonopcional" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="170" />
+    <Property Type="String" Name="CorreoElectronico" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Notificacion_ReadAll_Result">
+    <Property Type="Int64" Name="IDNotificacion" Nullable="false" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaNotificacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TextoNotificacion" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="IDPublicacion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Notificacion_ReadById_Result">
+    <Property Type="Int64" Name="IDNotificacion" Nullable="false" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaNotificacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TextoNotificacion" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="IDPublicacion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Promocion_ReadAll_Result">
+    <Property Type="Int64" Name="IDPromocion" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="CodigoPromo" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="Promocion_ReadById_Result">
+    <Property Type="Int64" Name="IDPromocion" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="CodigoPromo" Nullable="true" MaxLength="999" />
+  </ComplexType>
+  <ComplexType Name="Publicacion_ReadAll_Result">
+    <Property Type="Int64" Name="IDPublicacion" Nullable="false" />
+    <Property Type="Int64" Name="IDPromocion" Nullable="true" />
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="true" />
+    <Property Type="Int64" Name="IDActividad" Nullable="true" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Publicacion_ReadById_Result">
+    <Property Type="Int64" Name="IDPublicacion" Nullable="false" />
+    <Property Type="Int64" Name="IDPromocion" Nullable="true" />
+    <Property Type="Int64" Name="IDBolsaLaboral" Nullable="true" />
+    <Property Type="Int64" Name="IDActividad" Nullable="true" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Sesion_ReadAll_Result">
+    <Property Type="Int64" Name="IDSesion" Nullable="false" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="Time" Name="Duracion" Nullable="true" />
+    <Property Type="DateTime" Name="FechaIngreso" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Sesion_ReadById_Result">
+    <Property Type="Int64" Name="IDSesion" Nullable="false" />
+    <Property Type="String" Name="IDUsuario" Nullable="true" MaxLength="80" />
+    <Property Type="Time" Name="Duracion" Nullable="true" />
+    <Property Type="DateTime" Name="FechaIngreso" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Solicitud_ReadAll_Result">
+    <Property Type="Int64" Name="IDSolicitud" Nullable="false" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TipoRequerimiento" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="Max" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="Solicitud_ReadById_Result">
+    <Property Type="Int64" Name="IDSolicitud" Nullable="false" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TipoRequerimiento" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="Max" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sysdiagrams_ReadAll_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="name1" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" />
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sysdiagrams_ReadById_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="name1" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" />
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Tag_ReadAll_Result">
+    <Property Type="Int64" Name="IDTag" Nullable="false" />
+    <Property Type="String" Name="Palabra" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="Tag_ReadById_Result">
+    <Property Type="Int64" Name="IDTag" Nullable="false" />
+    <Property Type="String" Name="Palabra" Nullable="true" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="TipoActividad_ReadAll_Result">
+    <Property Type="Int64" Name="IDTipoActividad" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="TipoActividad_ReadById_Result">
+    <Property Type="Int64" Name="IDTipoActividad" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="Usuario_ReadAll_Result">
+    <Property Type="String" Name="IDUsuario" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="Contraseña" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IDAsociado" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="IDMembresia" Nullable="true" />
+    <Property Type="String" Name="Permiso" Nullable="true" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="Usuario_ReadById_Result">
+    <Property Type="String" Name="IDUsuario" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="Contraseña" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IDAsociado" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="IDMembresia" Nullable="true" />
+    <Property Type="String" Name="Permiso" Nullable="true" MaxLength="2" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASUGUACModelStoreContainer" CdmEntityContainer="ASUGUACEntities">
+    <EntitySetMapping Name="Actividad">
+      <EntityTypeMapping TypeName="ASUGUACModel.Actividad">
+        <MappingFragment StoreEntitySet="Actividad">
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BolsaLaboral">
+      <EntityTypeMapping TypeName="ASUGUACModel.BolsaLaboral">
+        <MappingFragment StoreEntitySet="BolsaLaboral">
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BolsaLaboralCarrera">
+      <EntityTypeMapping TypeName="ASUGUACModel.BolsaLaboralCarrera">
+        <MappingFragment StoreEntitySet="BolsaLaboralCarrera">
+          <ScalarProperty Name="IDBolsaLaboralCarrera" ColumnName="IDBolsaLaboralCarrera" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Busqueda">
+      <EntityTypeMapping TypeName="ASUGUACModel.Busqueda">
+        <MappingFragment StoreEntitySet="Busqueda">
+          <ScalarProperty Name="IDBusqueda" ColumnName="IDBusqueda" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="ASUGUACModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="IDEmpresa" ColumnName="IDEmpresa" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPMiembro">
+      <EntityTypeMapping TypeName="ASUGUACModel.EPMiembro">
+        <MappingFragment StoreEntitySet="EPMiembro">
+          <ScalarProperty Name="IDCPMiembro" ColumnName="IDCPMiembro" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EscuelaProfesional">
+      <EntityTypeMapping TypeName="ASUGUACModel.EscuelaProfesional">
+        <MappingFragment StoreEntitySet="EscuelaProfesional">
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membresia">
+      <EntityTypeMapping TypeName="ASUGUACModel.Membresia">
+        <MappingFragment StoreEntitySet="Membresia">
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="CategoriaMembresia" ColumnName="CategoriaMembresia" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Miembro">
+      <EntityTypeMapping TypeName="ASUGUACModel.Miembro">
+        <MappingFragment StoreEntitySet="Miembro">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefonopcional" ColumnName="Telefonopcional" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notificacion">
+      <EntityTypeMapping TypeName="ASUGUACModel.Notificacion">
+        <MappingFragment StoreEntitySet="Notificacion">
+          <ScalarProperty Name="IDNotificacion" ColumnName="IDNotificacion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="TextoNotificacion" ColumnName="TextoNotificacion" />
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promocion">
+      <EntityTypeMapping TypeName="ASUGUACModel.Promocion">
+        <MappingFragment StoreEntitySet="Promocion">
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoPromo" ColumnName="CodigoPromo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publicacion">
+      <EntityTypeMapping TypeName="ASUGUACModel.Publicacion">
+        <MappingFragment StoreEntitySet="Publicacion">
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sesion">
+      <EntityTypeMapping TypeName="ASUGUACModel.Sesion">
+        <MappingFragment StoreEntitySet="Sesion">
+          <ScalarProperty Name="IDSesion" ColumnName="IDSesion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud">
+      <EntityTypeMapping TypeName="ASUGUACModel.Solicitud">
+        <MappingFragment StoreEntitySet="Solicitud">
+          <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="TipoRequerimiento" ColumnName="TipoRequerimiento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ASUGUACModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag">
+      <EntityTypeMapping TypeName="ASUGUACModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="IDTag" ColumnName="IDTag" />
+          <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoActividad">
+      <EntityTypeMapping TypeName="ASUGUACModel.TipoActividad">
+        <MappingFragment StoreEntitySet="TipoActividad">
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ASUGUACModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Actividad_Create" FunctionName="ASUGUACModel.Store.Actividad_Create" />
+    <FunctionImportMapping FunctionImportName="Actividad_Delete" FunctionName="ASUGUACModel.Store.Actividad_Delete" />
+    <FunctionImportMapping FunctionImportName="Actividad_ReadAll" FunctionName="ASUGUACModel.Store.Actividad_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Actividad_ReadAll_Result">
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Actividad_ReadById" FunctionName="ASUGUACModel.Store.Actividad_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Actividad_ReadById_Result">
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Actividad_Update" FunctionName="ASUGUACModel.Store.Actividad_Update" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboral_Create" FunctionName="ASUGUACModel.Store.BolsaLaboral_Create" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboral_Delete" FunctionName="ASUGUACModel.Store.BolsaLaboral_Delete" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboral_ReadAll" FunctionName="ASUGUACModel.Store.BolsaLaboral_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.BolsaLaboral_ReadAll_Result">
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BolsaLaboral_ReadById" FunctionName="ASUGUACModel.Store.BolsaLaboral_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.BolsaLaboral_ReadById_Result">
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BolsaLaboral_Update" FunctionName="ASUGUACModel.Store.BolsaLaboral_Update" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboralCarrera_Create" FunctionName="ASUGUACModel.Store.BolsaLaboralCarrera_Create" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboralCarrera_Delete" FunctionName="ASUGUACModel.Store.BolsaLaboralCarrera_Delete" />
+    <FunctionImportMapping FunctionImportName="BolsaLaboralCarrera_ReadAll" FunctionName="ASUGUACModel.Store.BolsaLaboralCarrera_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.BolsaLaboralCarrera_ReadAll_Result">
+          <ScalarProperty Name="IDBolsaLaboralCarrera" ColumnName="IDBolsaLaboralCarrera" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BolsaLaboralCarrera_ReadById" FunctionName="ASUGUACModel.Store.BolsaLaboralCarrera_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.BolsaLaboralCarrera_ReadById_Result">
+          <ScalarProperty Name="IDBolsaLaboralCarrera" ColumnName="IDBolsaLaboralCarrera" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BolsaLaboralCarrera_Update" FunctionName="ASUGUACModel.Store.BolsaLaboralCarrera_Update" />
+    <FunctionImportMapping FunctionImportName="Busqueda_Create" FunctionName="ASUGUACModel.Store.Busqueda_Create" />
+    <FunctionImportMapping FunctionImportName="Busqueda_Delete" FunctionName="ASUGUACModel.Store.Busqueda_Delete" />
+    <FunctionImportMapping FunctionImportName="Busqueda_ReadAll" FunctionName="ASUGUACModel.Store.Busqueda_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Busqueda_ReadAll_Result">
+          <ScalarProperty Name="IDBusqueda" ColumnName="IDBusqueda" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Busqueda_ReadById" FunctionName="ASUGUACModel.Store.Busqueda_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Busqueda_ReadById_Result">
+          <ScalarProperty Name="IDBusqueda" ColumnName="IDBusqueda" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Busqueda_Update" FunctionName="ASUGUACModel.Store.Busqueda_Update" />
+    <FunctionImportMapping FunctionImportName="Empresa_Create" FunctionName="ASUGUACModel.Store.Empresa_Create" />
+    <FunctionImportMapping FunctionImportName="Empresa_Delete" FunctionName="ASUGUACModel.Store.Empresa_Delete" />
+    <FunctionImportMapping FunctionImportName="Empresa_ReadAll" FunctionName="ASUGUACModel.Store.Empresa_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Empresa_ReadAll_Result">
+          <ScalarProperty Name="IDEmpresa" ColumnName="IDEmpresa" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Empresa_ReadById" FunctionName="ASUGUACModel.Store.Empresa_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Empresa_ReadById_Result">
+          <ScalarProperty Name="IDEmpresa" ColumnName="IDEmpresa" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Empresa_Update" FunctionName="ASUGUACModel.Store.Empresa_Update" />
+    <FunctionImportMapping FunctionImportName="EPMiembro_Create" FunctionName="ASUGUACModel.Store.EPMiembro_Create" />
+    <FunctionImportMapping FunctionImportName="EPMiembro_Delete" FunctionName="ASUGUACModel.Store.EPMiembro_Delete" />
+    <FunctionImportMapping FunctionImportName="EPMiembro_ReadAll" FunctionName="ASUGUACModel.Store.EPMiembro_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.EPMiembro_ReadAll_Result">
+          <ScalarProperty Name="IDCPMiembro" ColumnName="IDCPMiembro" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EPMiembro_ReadById" FunctionName="ASUGUACModel.Store.EPMiembro_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.EPMiembro_ReadById_Result">
+          <ScalarProperty Name="IDCPMiembro" ColumnName="IDCPMiembro" />
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EPMiembro_Update" FunctionName="ASUGUACModel.Store.EPMiembro_Update" />
+    <FunctionImportMapping FunctionImportName="EscuelaProfesional_Create" FunctionName="ASUGUACModel.Store.EscuelaProfesional_Create" />
+    <FunctionImportMapping FunctionImportName="EscuelaProfesional_Delete" FunctionName="ASUGUACModel.Store.EscuelaProfesional_Delete" />
+    <FunctionImportMapping FunctionImportName="EscuelaProfesional_ReadAll" FunctionName="ASUGUACModel.Store.EscuelaProfesional_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.EscuelaProfesional_ReadAll_Result">
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EscuelaProfesional_ReadById" FunctionName="ASUGUACModel.Store.EscuelaProfesional_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.EscuelaProfesional_ReadById_Result">
+          <ScalarProperty Name="IDCarreraProfesional" ColumnName="IDCarreraProfesional" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EscuelaProfesional_Update" FunctionName="ASUGUACModel.Store.EscuelaProfesional_Update" />
+    <FunctionImportMapping FunctionImportName="Membresia_Create" FunctionName="ASUGUACModel.Store.Membresia_Create" />
+    <FunctionImportMapping FunctionImportName="Membresia_Delete" FunctionName="ASUGUACModel.Store.Membresia_Delete" />
+    <FunctionImportMapping FunctionImportName="Membresia_ReadAll" FunctionName="ASUGUACModel.Store.Membresia_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Membresia_ReadAll_Result">
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="CategoriaMembresia" ColumnName="CategoriaMembresia" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Membresia_ReadById" FunctionName="ASUGUACModel.Store.Membresia_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Membresia_ReadById_Result">
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="CategoriaMembresia" ColumnName="CategoriaMembresia" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Membresia_Update" FunctionName="ASUGUACModel.Store.Membresia_Update" />
+    <FunctionImportMapping FunctionImportName="Miembro_Create" FunctionName="ASUGUACModel.Store.Miembro_Create" />
+    <FunctionImportMapping FunctionImportName="Miembro_Delete" FunctionName="ASUGUACModel.Store.Miembro_Delete" />
+    <FunctionImportMapping FunctionImportName="Miembro_ReadAll" FunctionName="ASUGUACModel.Store.Miembro_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Miembro_ReadAll_Result">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefonopcional" ColumnName="Telefonopcional" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Miembro_ReadById" FunctionName="ASUGUACModel.Store.Miembro_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Miembro_ReadById_Result">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefonopcional" ColumnName="Telefonopcional" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Miembro_Update" FunctionName="ASUGUACModel.Store.Miembro_Update" />
+    <FunctionImportMapping FunctionImportName="Notificacion_Create" FunctionName="ASUGUACModel.Store.Notificacion_Create" />
+    <FunctionImportMapping FunctionImportName="Notificacion_Delete" FunctionName="ASUGUACModel.Store.Notificacion_Delete" />
+    <FunctionImportMapping FunctionImportName="Notificacion_ReadAll" FunctionName="ASUGUACModel.Store.Notificacion_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Notificacion_ReadAll_Result">
+          <ScalarProperty Name="IDNotificacion" ColumnName="IDNotificacion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="TextoNotificacion" ColumnName="TextoNotificacion" />
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Notificacion_ReadById" FunctionName="ASUGUACModel.Store.Notificacion_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Notificacion_ReadById_Result">
+          <ScalarProperty Name="IDNotificacion" ColumnName="IDNotificacion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="TextoNotificacion" ColumnName="TextoNotificacion" />
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Notificacion_Update" FunctionName="ASUGUACModel.Store.Notificacion_Update" />
+    <FunctionImportMapping FunctionImportName="Promocion_Create" FunctionName="ASUGUACModel.Store.Promocion_Create" />
+    <FunctionImportMapping FunctionImportName="Promocion_Delete" FunctionName="ASUGUACModel.Store.Promocion_Delete" />
+    <FunctionImportMapping FunctionImportName="Promocion_ReadAll" FunctionName="ASUGUACModel.Store.Promocion_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Promocion_ReadAll_Result">
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoPromo" ColumnName="CodigoPromo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Promocion_ReadById" FunctionName="ASUGUACModel.Store.Promocion_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Promocion_ReadById_Result">
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoPromo" ColumnName="CodigoPromo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Promocion_Update" FunctionName="ASUGUACModel.Store.Promocion_Update" />
+    <FunctionImportMapping FunctionImportName="Publicacion_Create" FunctionName="ASUGUACModel.Store.Publicacion_Create" />
+    <FunctionImportMapping FunctionImportName="Publicacion_Delete" FunctionName="ASUGUACModel.Store.Publicacion_Delete" />
+    <FunctionImportMapping FunctionImportName="Publicacion_ReadAll" FunctionName="ASUGUACModel.Store.Publicacion_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Publicacion_ReadAll_Result">
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Publicacion_ReadById" FunctionName="ASUGUACModel.Store.Publicacion_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Publicacion_ReadById_Result">
+          <ScalarProperty Name="IDPublicacion" ColumnName="IDPublicacion" />
+          <ScalarProperty Name="IDPromocion" ColumnName="IDPromocion" />
+          <ScalarProperty Name="IDBolsaLaboral" ColumnName="IDBolsaLaboral" />
+          <ScalarProperty Name="IDActividad" ColumnName="IDActividad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Publicacion_Update" FunctionName="ASUGUACModel.Store.Publicacion_Update" />
+    <FunctionImportMapping FunctionImportName="Sesion_Create" FunctionName="ASUGUACModel.Store.Sesion_Create" />
+    <FunctionImportMapping FunctionImportName="Sesion_Delete" FunctionName="ASUGUACModel.Store.Sesion_Delete" />
+    <FunctionImportMapping FunctionImportName="Sesion_ReadAll" FunctionName="ASUGUACModel.Store.Sesion_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Sesion_ReadAll_Result">
+          <ScalarProperty Name="IDSesion" ColumnName="IDSesion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sesion_ReadById" FunctionName="ASUGUACModel.Store.Sesion_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Sesion_ReadById_Result">
+          <ScalarProperty Name="IDSesion" ColumnName="IDSesion" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sesion_Update" FunctionName="ASUGUACModel.Store.Sesion_Update" />
+    <FunctionImportMapping FunctionImportName="Solicitud_Create" FunctionName="ASUGUACModel.Store.Solicitud_Create" />
+    <FunctionImportMapping FunctionImportName="Solicitud_Delete" FunctionName="ASUGUACModel.Store.Solicitud_Delete" />
+    <FunctionImportMapping FunctionImportName="Solicitud_ReadAll" FunctionName="ASUGUACModel.Store.Solicitud_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Solicitud_ReadAll_Result">
+          <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="TipoRequerimiento" ColumnName="TipoRequerimiento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Solicitud_ReadById" FunctionName="ASUGUACModel.Store.Solicitud_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Solicitud_ReadById_Result">
+          <ScalarProperty Name="IDSolicitud" ColumnName="IDSolicitud" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="TipoRequerimiento" ColumnName="TipoRequerimiento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Solicitud_Update" FunctionName="ASUGUACModel.Store.Solicitud_Update" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ASUGUACModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ASUGUACModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ASUGUACModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ASUGUACModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ASUGUACModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ASUGUACModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ASUGUACModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sysdiagrams_Delete" FunctionName="ASUGUACModel.Store.sysdiagrams_Delete" />
+    <FunctionImportMapping FunctionImportName="sysdiagrams_ReadAll" FunctionName="ASUGUACModel.Store.sysdiagrams_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.sysdiagrams_ReadAll_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="name1" ColumnName="name1" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sysdiagrams_ReadById" FunctionName="ASUGUACModel.Store.sysdiagrams_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.sysdiagrams_ReadById_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="name1" ColumnName="name1" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Tag_Create" FunctionName="ASUGUACModel.Store.Tag_Create" />
+    <FunctionImportMapping FunctionImportName="Tag_Delete" FunctionName="ASUGUACModel.Store.Tag_Delete" />
+    <FunctionImportMapping FunctionImportName="Tag_ReadAll" FunctionName="ASUGUACModel.Store.Tag_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Tag_ReadAll_Result">
+          <ScalarProperty Name="IDTag" ColumnName="IDTag" />
+          <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Tag_ReadById" FunctionName="ASUGUACModel.Store.Tag_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Tag_ReadById_Result">
+          <ScalarProperty Name="IDTag" ColumnName="IDTag" />
+          <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Tag_Update" FunctionName="ASUGUACModel.Store.Tag_Update" />
+    <FunctionImportMapping FunctionImportName="TipoActividad_Create" FunctionName="ASUGUACModel.Store.TipoActividad_Create" />
+    <FunctionImportMapping FunctionImportName="TipoActividad_Delete" FunctionName="ASUGUACModel.Store.TipoActividad_Delete" />
+    <FunctionImportMapping FunctionImportName="TipoActividad_ReadAll" FunctionName="ASUGUACModel.Store.TipoActividad_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.TipoActividad_ReadAll_Result">
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TipoActividad_ReadById" FunctionName="ASUGUACModel.Store.TipoActividad_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.TipoActividad_ReadById_Result">
+          <ScalarProperty Name="IDTipoActividad" ColumnName="IDTipoActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TipoActividad_Update" FunctionName="ASUGUACModel.Store.TipoActividad_Update" />
+    <FunctionImportMapping FunctionImportName="Usuario_Create" FunctionName="ASUGUACModel.Store.Usuario_Create" />
+    <FunctionImportMapping FunctionImportName="Usuario_Delete" FunctionName="ASUGUACModel.Store.Usuario_Delete" />
+    <FunctionImportMapping FunctionImportName="Usuario_ReadAll" FunctionName="ASUGUACModel.Store.Usuario_ReadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Usuario_ReadAll_Result">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usuario_ReadById" FunctionName="ASUGUACModel.Store.Usuario_ReadById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASUGUACModel.Usuario_ReadById_Result">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IDAsociado" ColumnName="IDAsociado" />
+          <ScalarProperty Name="IDMembresia" ColumnName="IDMembresia" />
+          <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usuario_Update" FunctionName="ASUGUACModel.Store.Usuario_Update" />
+  </EntityContainerMapping>
+</Mapping>

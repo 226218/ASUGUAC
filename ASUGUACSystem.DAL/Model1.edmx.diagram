@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1843799a345c4efab006f67ee0bdb0fb" Name="Diagram1">
+        <EntityTypeShape EntityType="ASUGUACModel.Actividad" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.BolsaLaboral" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.BolsaLaboralCarrera" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Busqueda" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Empresa" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.EPMiembro" Width="1.5" PointX="8.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.EscuelaProfesional" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Membresia" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Miembro" Width="1.5" PointX="6.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Notificacion" Width="1.5" PointX="12.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Promocion" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Publicacion" Width="1.5" PointX="10.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Sesion" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Solicitud" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Tag" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.TipoActividad" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASUGUACModel.Usuario" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="ASUGUACModel.FK__Actividad__IDTip__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Actividad__IDUsu__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Publicaci__IDAct__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__BolsaLabo__IDBol__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__BolsaLabo__IDUsu__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Publicaci__IDBol__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__BolsaLabo__IDCar__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Busqueda__IDUsua__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__EPMiembro__DNI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__EPMiembro__IDCar__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Usuario__IDMembr__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Notificac__IDPub__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Notificac__IDUsu__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Promocion__IDUsu__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Publicaci__IDPro__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="ASUGUACModel.FK__Sesion__IDUsuari__6383C8BA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,10 @@
+C:\Users\royex\source\repos\ASUGUACSystem\ASUGUACSystem.DAL\obj\Debug\ASUGUACSystem.DAL.csprojAssemblyReference.cache
+C:\Users\royex\source\repos\ASUGUACSystem\ASUGUACSystem.DAL\obj\Debug\ASUGUACSystem.DAL.csproj.CoreCompileInputs.cache
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\bin\Debug\ASUGUACSystem.DAL.dll.config
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\bin\Debug\ASUGUACSystem.DAL.dll
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\bin\Debug\ASUGUACSystem.DAL.pdb
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\bin\Debug\EntityFramework.dll
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\bin\Debug\EntityFramework.xml
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\obj\Debug\ASUGUACSystem.DAL.csprojResolveAssemblyReference.cache
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\obj\Debug\ASUGUACSystem.DAL.dll
+C:\Users\takat\OneDrive\Documents\Visual Studio 2012\Projects\ASUGUACSystem\ASUGUACSystem.DAL\obj\Debug\ASUGUACSystem.DAL.pdb
